@@ -21,12 +21,12 @@ if __name__ == '__main__':
             path_query+'query_insert.sql','r'
         ).read(), strip_comments=True).strip()
 
-    # try:
-    print(f"[INFO] Service ETL is Running ...")
-    cursor.execute(query_create)
-    cursor.execute(query_insert)
-    conn.commit()
+    try:
+        print(f"[INFO] Service ETL is Running ...")
+        cursor.execute(query_create)
+        cursor.execute(query_insert)
+        conn.commit()
 
-    print(f"[INFO] Service ETL is Succeed ...")
-    # except:
-        # print(f"[INFO] Service ETL is Failed")
+        print(f"[INFO] Service ETL is Succeed ...")
+    except:
+        print(f"[INFO] Service ETL is Failed")
